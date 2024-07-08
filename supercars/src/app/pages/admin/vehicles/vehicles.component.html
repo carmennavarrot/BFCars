@@ -1,0 +1,35 @@
+
+  
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Disponibilidad</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+            @for(vehicle of (vehicles | filtrar: filtro) ; track vehicle){
+          <tr>
+            <td>
+              <button (click)="eliminar(vehicle._id)" class="btn btn-danger btn-sm me-1">
+                <i class="fa fa-trash"></i>
+              </button>
+               <button  (click)="editar(vehicle._id)" class="btn btn-primary btn-sm">
+            <i class="fa fa-pencil"></i>
+          </button>
+            </td>
+            <td>{{ vehicle.brand }}</td>
+            <td>{{ vehicle.model }}</td>
+            <td>{{ vehicle.available }}</td>
+            <td>{{ vehicle.description }}</td>
+          </tr>
+        }
+        </tbody>
+      </table>
+      <!-- añadir, editar y eliminar -->
+
+
+
